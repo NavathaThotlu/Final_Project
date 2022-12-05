@@ -1,0 +1,31 @@
+﻿@model MiniProjectApp.Models.Blogt
+
+@{
+    ViewBag.Title = "AddBlogs";
+}
+<div class="AddNew">
+    <h2 style="text-align:center;color:indianred">Add Your Experience</h2>
+</div>
+<div class="container1">
+    @using (Html.BeginForm())
+    {
+        <div class="row1">
+            @Html.HiddenFor(m => m.Userid)<br />
+            <label>Enter the title</label><br />
+            @Html.EditorFor(b => b.Title)<br />
+            <label>Enter the Image</label><br />
+            @Html.EditorFor(b => b.Images)<br />
+            <label>Enter the Experience</label><br />
+            @Html.EditorFor(b => b.Details)<br />
+            <label>Enter the Travel Date</label><br />
+            @Html.EditorFor(b => b.TravelDate)<br />
+            <label>Rate your Experience of travel</label><br />
+            @Html.EditorFor(b => b.ratings)<br />
+            <button class="btn btn-primary text-warning ms-4">Add The Blog</button>
+        </div>
+    }
+</div>
+
+
+
+   

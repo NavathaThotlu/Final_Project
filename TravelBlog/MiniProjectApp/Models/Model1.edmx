@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="COMPANYModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Blogt">
+          <Key>
+            <PropertyRef Name="BlogId" />
+          </Key>
+          <Property Name="BlogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Userid" Type="int" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="TravelDate" Type="date" Nullable="false" />
+          <Property Name="Details" Type="varchar" MaxLength="300" />
+          <Property Name="Images" Type="varchar(max)" Nullable="false" />
+          <Property Name="ratings" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserT">
+          <Key>
+            <PropertyRef Name="User_Id" />
+          </Key>
+          <Property Name="User_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MobileName" Type="bigint" Nullable="false" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Blogt__Userid__1AF3F935">
+          <End Role="UserT" Type="Self.UserT" Multiplicity="1" />
+          <End Role="Blogt" Type="Self.Blogt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserT">
+              <PropertyRef Name="User_Id" />
+            </Principal>
+            <Dependent Role="Blogt">
+              <PropertyRef Name="Userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="COMPANYModelStoreContainer">
+          <EntitySet Name="Blogt" EntityType="Self.Blogt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserT" EntityType="Self.UserT" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Blogt__Userid__1AF3F935" Association="Self.FK__Blogt__Userid__1AF3F935">
+            <End Role="UserT" EntitySet="UserT" />
+            <End Role="Blogt" EntitySet="Blogt" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="COMPANYModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="COMPANYEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Blogts" EntityType="COMPANYModel.Blogt" />
+          <EntitySet Name="UserTs" EntityType="COMPANYModel.UserT" />
+          <AssociationSet Name="FK__Blogt__Userid__1AF3F935" Association="COMPANYModel.FK__Blogt__Userid__1AF3F935">
+            <End Role="UserT" EntitySet="UserTs" />
+            <End Role="Blogt" EntitySet="Blogts" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Blogt">
+          <Key>
+            <PropertyRef Name="BlogId" />
+          </Key>
+          <Property Name="BlogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Userid" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="TravelDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Details" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Images" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ratings" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="UserT" Relationship="COMPANYModel.FK__Blogt__Userid__1AF3F935" FromRole="Blogt" ToRole="UserT" />
+        </EntityType>
+        <EntityType Name="UserT">
+          <Key>
+            <PropertyRef Name="User_Id" />
+          </Key>
+          <Property Name="User_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MobileName" Type="Int64" Nullable="false" />
+          <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Blogts" Relationship="COMPANYModel.FK__Blogt__Userid__1AF3F935" FromRole="UserT" ToRole="Blogt" />
+        </EntityType>
+        <Association Name="FK__Blogt__Userid__1AF3F935">
+          <End Type="COMPANYModel.UserT" Role="UserT" Multiplicity="1" />
+          <End Type="COMPANYModel.Blogt" Role="Blogt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserT">
+              <PropertyRef Name="User_Id" />
+            </Principal>
+            <Dependent Role="Blogt">
+              <PropertyRef Name="Userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="COMPANYModelStoreContainer" CdmEntityContainer="COMPANYEntities">
+          <EntitySetMapping Name="Blogts">
+            <EntityTypeMapping TypeName="COMPANYModel.Blogt">
+              <MappingFragment StoreEntitySet="Blogt">
+                <ScalarProperty Name="ratings" ColumnName="ratings" />
+                <ScalarProperty Name="Images" ColumnName="Images" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="TravelDate" ColumnName="TravelDate" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Userid" ColumnName="Userid" />
+                <ScalarProperty Name="BlogId" ColumnName="BlogId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTs">
+            <EntityTypeMapping TypeName="COMPANYModel.UserT">
+              <MappingFragment StoreEntitySet="UserT">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="MobileName" ColumnName="MobileName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

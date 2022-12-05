@@ -1,0 +1,29 @@
+TravelBLog
+-----------------
+Blog_Table
+------------
+CREATE TABLE [dbo].[Blogt] (
+    [BlogId]     INT           IDENTITY (1, 1) NOT NULL,
+    [Userid]     INT           NOT NULL,
+    [Title]      VARCHAR (300) NOT NULL,
+    [TravelDate] DATE          DEFAULT (getdate()) NOT NULL,
+    [Details]    VARCHAR (300) NULL,
+    [Images]     VARCHAR (max)  NOT NULL,
+    [ratings]    INT           NOT NULL,
+    PRIMARY KEY CLUSTERED ([BlogId] ASC),
+    FOREIGN KEY ([Userid]) REFERENCES [dbo].[UserT] ([User_Id])
+);
+
+
+User_Table
+---------------
+CREATE TABLE [dbo].[UserT] (
+    [User_Id]      INT          IDENTITY (1, 1) NOT NULL,
+    [User_Name]    VARCHAR (50) NOT NULL,
+    [Name]         VARCHAR (50) NOT NULL,
+    [Address]      VARCHAR (50) NOT NULL,
+    [MobileName]   BIGINT       NOT NULL,
+    [EmailAddress] VARCHAR (50) NOT NULL,
+    [Password]     VARCHAR (50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([User_Id] ASC)
+);
