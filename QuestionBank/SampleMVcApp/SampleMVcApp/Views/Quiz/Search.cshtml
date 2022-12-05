@@ -1,0 +1,68 @@
+﻿@model IEnumerable<SampleMVcApp.Models.tbl_questions>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+@using (Html.BeginForm("Search", "Quiz", FormMethod.Post))
+{
+    Search:<input type="text" name="catname" />
+        GetHashCode Result:<Input type="submit" value="Get Records"/>
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.q_text)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QcorrectAns)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tbl_category.cat_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.q_text)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QcorrectAns)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tbl_category.cat_name)
+        </td>
+        
+    </tr>
+}
+
+</table>

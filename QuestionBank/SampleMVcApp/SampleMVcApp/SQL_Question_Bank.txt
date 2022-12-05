@@ -1,0 +1,23 @@
+
+Questions_Table
+-------------------------------------------
+
+create table tbl_questions(
+q_id int primary key identity(1,1),
+q_text nvarchar(max) not null,
+QA nvarchar(40) not null unique,
+QB nvarchar(40) not null unique,
+QC nvarchar(40) not null unique,
+QD nvarchar(40) not null unique,
+QcorrectAns nvarchar(50) not null,
+car_id int foreign key references tbl_category(car_id)
+)
+
+Category_Table
+---------------------------------------------------------------
+create table tbl_category(
+car_id int primary key identity(1,1),
+cat_name nvarchar(250) not null,
+cat_ad_id int foreign key references tbl_admin(ad_id)
+
+)

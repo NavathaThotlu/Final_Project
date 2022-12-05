@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+}
+<h1>Welcome to Question Bank APP</h1>
+
+ @Html.ActionLink("Add Category", "Add_Category",new {style="text-decoration:none;"})<hr/>
+ @Html.ActionLink("Add Questions", "AddQuestions", new { style = "text-decoration:none;" })<hr />
+ @Html.ActionLink("AllQuestions", "AllQuestions", new { style = "text-decoration:none;color:white"})<hr />
+@*<table class="table table-bordered" border="1">
+    <tr>
+        <th>question Id</th>
+        <th>Question Name</th>
+        <th>Option A</th>
+        <th>Option B</th>
+        <th>Option C</th>
+        <th>Option D</th>
+        <th>Correct Answer</th>
+        <th>Category ID</th>
+    </tr>
+    @foreach (var p in Model)
+    {
+<tr>
+    <td>@p.q_id</td>
+    <td>@p.q_text</td>
+    <td>@p.QA</td>
+    <td>@p.QB</td>
+    <td>@p.QC</td>
+    <td>@p.QD</td>
+    <td>@p.QcorrectAns</td>
+    <td>@p.car_id</td>
+    <td>
+        @Html.ActionLink("Edit", "ViewRec", new { q_id = p.q_id })
+        @Html.ActionLink("Delete", "Delete", new { q_id = p.q_id })
+    </td>
+</tr>
+    }
+</table>*@
+<!doctype html>
+<html>
+<head>
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <title>Dashboard</title>
+
+</head>
+<body @*<div class="row">
+        <div class="col-lg-4-md-4 col-sm-4 col-xs-4 btn-btn-sucess" style="height:900px;border:1px solid gray;background-color:gray"></div>
+        <div class="col-lg-8-md-4 col-sm-8 col-xs-8" style="height: 900px; border: 1px solid gray; background-color: deeppink"> </div>
+
+
+    </div>*@
+      @*<div class="list-group">
+        <a href="#" class="list-group-item">Reorts</a>
+        <a href="~/Views/Quiz/Add_Category.cshtml" class="list-group-item">Add Category</a>
+        <a href="#" class="list-group-item">Add question</a>
+
+    </div>*@
+</body>
+</html>
+

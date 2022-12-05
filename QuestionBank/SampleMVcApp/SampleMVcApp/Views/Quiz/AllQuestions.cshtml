@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "AllQuestions";
+}
+
+@model SampleMVcApp.Models.tbl_questions
+
+@{
+    ViewBag.Title = "AllQuestions";
+}
+
+@Html.ActionLink("Dashboard", "Dashboard")
+<h2>AllQuestions</h2>
+
+@*<table class="table table-bordered" border="2">
+        <tr>
+            <th>question Id</th>
+            <th>Question Name</th>>
+            <th>Opt A</th>
+            <th>Opt B</th>
+            <th>Opt C</th>
+            <th>Opt D</th>
+            <th>Correct Answer</th>
+            <th>Category ID</th>
+        </tr>
+        @foreach (var p in ViewData["list"] as List<SampleMVcApp.Models.tbl_questions>)
+
+        {
+            <tr>
+                <td>@p.q_id</td>
+                <td>@p.q_text</td>
+                <td>@p.QA</td>
+                <td>@p.QB</td>
+                <td>@p.QC</td>
+                <td>@p.QD</td>
+                <td>@p.QcorrectAns</td>
+                <td>@p.car_id</td>
+                <td>
+                    @Html.ActionLink("Edit", "ViewRec", new { q_id = p.q_id })
+                    @Html.ActionLink("Delete", "Delete", new { q_id = p.q_id })
+                </td>
+            </tr>
+        }
+    </table>*@
+<button>Export_to_excel</button>
+@using (Html.BeginForm("downloadreport", "Quiz", FormMethod.Post))
+{
+    
+    
+}
+<div class="row">
+    <table class="table" border="1" style="border-color:deeppink">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.q_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.q_text)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QcorrectAns)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tbl_category.cat_name)
+            </th>
+        </tr>
+        @foreach (var p in ViewData["list"] as List<SampleMVcApp.Models.Allquestions_Result>)
+        {
+            <tr>
+                <td>@p.q_id</td>
+                <td>@p.q_text</td>
+                <td>@p.QA</td>
+                <td>@p.QB</td>
+                <td>@p.QC</td>
+                <td>@p.QD</td>
+                <td>@p.QcorrectAns</td>
+                <td>@p.cat_name</td>
+
+            </tr>
+        }
+    </table>
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+﻿@model SampleMVcApp.Models.tbl_questions
+
+@{
+    ViewBag.Title = "ViewRec";
+}
+
+@using (Html.BeginForm("Updatequestions", "Quiz"))
+{
+    <p> @Html.EditorFor(p => p.q_id)</p>
+    <p>Enter the question: @Html.EditorFor(p => p.q_text)</p>
+    <p>Enter the option A: @Html.EditorFor(p => p.QA)</p>
+    <p>Enter the option B: @Html.EditorFor(p => p.QB)</p>
+    <p>Enter the option C @Html.EditorFor(p => p.QC)</p>
+    <p>Enter the option D: @Html.EditorFor(p => p.QD)</p>
+    <p>Enter the correct: @Html.EditorFor(p => p.QcorrectAns)</p>
+    <p><button>Save Changes</button></p>
+}
+
+
+

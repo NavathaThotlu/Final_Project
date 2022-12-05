@@ -1,0 +1,19 @@
+﻿@model SampleMVcApp.Models.Patient
+
+@{
+    ViewBag.Title = "AddNew";
+}
+
+<h2>Add New Patient here!!</h2>
+@using (Html.BeginForm())
+{
+    <p>Enter the Name: @Html.EditorFor(p => p.pname)</p>
+    <p>Enter the Contact No: @Html.EditorFor(p => p.pcno)</p>
+    <p>Enter the Total Bill: @Html.EditorFor(p => p.pbill)</p>
+    <p>Enter the Date of Appointment: @Html.EditorFor(p => p.date)</p>
+    <p>Enter the Doctor Id For Patient: @Html.EditorFor(p => p.doctore_id)</p>
+    <p><button>Save Changes</button></p>
+}
+
+
+

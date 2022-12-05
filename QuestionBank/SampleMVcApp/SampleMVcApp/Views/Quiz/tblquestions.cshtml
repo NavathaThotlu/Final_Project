@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "tblquestions";
+}
+
+<h2>AllQuestions_Table</h2>
+@Html.ActionLink("Dashboard", "Dashboard")
+
+<table class="table table-bordered" border="2">
+    <tr>
+        <th>question Id</th>
+        <th>question Name</th>
+        <th>opt A</th>
+        <th>Opt B</th>
+        <th>opt C</th>
+        <th>opt D</th>
+        <th>Correct Ans</th>
+        <th>category_ID</th>
+    </tr>
+    @foreach (var p in Model)
+    {
+        <tr>
+            <td>@p.q_id</td>
+            <td>@p.q_text</td>
+            <td>@p.QA</td>
+            <td>@p.QB</td>
+            <td>@p.QC</td>
+            <td>@p.QD</td>
+            <td>@p.QcorrectAns</td>
+            <td>@p.car_id</td>
+            <td>
+                @Html.ActionLink("Edit", "ViewRec", new { q_id = p.q_id })
+
+            </td>
+        </tr>
+    }
+</table>
+
+
+
+
+

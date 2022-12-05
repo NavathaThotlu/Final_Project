@@ -1,0 +1,37 @@
+﻿@model List<SampleMVcApp.Models.Patient>
+
+@{
+    ViewBag.Title = "AllRecords";
+}
+
+<h1>List of Doctors With us</h1>
+<hr />
+@Html.ActionLink("Add New Patient", "AddNew")
+<table class="table table-bordered" border="1">
+    <tr>
+        <th>Patient Id</th>
+        <th>Patient Name</th>
+        <th>Patient Contact no</th>
+        <th>Patient Bill</th>
+        <th>Date of Appointment</th>
+        <th>Doctor Id</th>
+    </tr>
+    @foreach (var p in Model)
+    {
+<tr>
+    <td>@p.id</td>
+    <td>@p.pname</td>
+    <td>@p.pcno</td>
+    <td>@p.pbill</td>
+    <td>@p.date</td>
+    <td>@p.doctore_id</td>
+    <td>
+        @Html.ActionLink("Edit", "ViewRec", new { id = p.id })
+        @Html.ActionLink("Delete", "Delete", new { id = p.id })
+    </td>
+</tr>
+    }
+</table>
+
+
+
